@@ -1,5 +1,6 @@
 import React from "react";
 import { Plus } from "lucide-react";
+import TipsCard from "./TipsCard";
 
 class NoteInput extends React.Component {
   constructor(props) {
@@ -55,30 +56,36 @@ class NoteInput extends React.Component {
     if (!this.state.showForm) {
       return (
         <div className="note-input" data-testid="note-input">
-          <div className="note-input-hero">
-            <img
-              src="/icons/matahari.png"
-              alt="ilustrasi"
-              className="note-input-hero__img note-input-hero__img--left"
-              draggable="false"
-            />
-            <div className="note-input-hero__center">
-              <p className="note-input-hero__tagline">
-                Tulis catatan Anda di sini
-              </p>
-              <button
-                className="note-input-hero__cta btn-brand"
-                onClick={() => this.setState({ showForm: true })}
-              >
-                <Plus size={18} />
-                Buat Catatan Pertama
-              </button>
+          <div className="note-input-hero-wrapper">
+            <div className="note-input-hero">
+              <img
+                src="/icons/matahari.png"
+                alt="ilustrasi"
+                className="note-input-hero__img note-input-hero__img--left"
+                draggable="false"
+              />
+              <div className="note-input-hero__center">
+                <p className="note-input-hero__tagline">
+                  Tulis catatan Anda di sini
+                </p>
+                <button
+                  className="note-input-hero__cta btn-brand"
+                  onClick={() => this.setState({ showForm: true })}
+                >
+                  <Plus size={18} />
+                  Buat Catatan Pertama
+                </button>
+              </div>
+              <img
+                src="/icons/donat.png"
+                alt="ilustrasi"
+                className="note-input-hero__img note-input-hero__img--right"
+                draggable="false"
+              />
             </div>
-            <img
-              src="/icons/donat.png"
-              alt="ilustrasi"
-              className="note-input-hero__img note-input-hero__img--right"
-              draggable="false"
+            <TipsCard
+              viewMode={this.props.viewMode}
+              onViewChange={this.props.onViewChange}
             />
           </div>
         </div>
