@@ -2,7 +2,9 @@ import React from 'react';
 import { getInitialData } from '../utils';
 import NoteInput from './NoteInput';
 import NotesList from './NotesList';
-import NoteSearch from './NoteSearch';
+import Sidebar from './Sidebar';
+import TopNavbar from './TopNavbar';
+import HeroBanner from './HeroBanner';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,12 +13,14 @@ class App extends React.Component {
     this.state = {
       notes: getInitialData(),
       searchKeyword: '',
+      activeTab: 'semua',
     };
 
     this.onAddNoteHandler = this.onAddNoteHandler.bind(this);
     this.onDeleteHandler = this.onDeleteHandler.bind(this);
     this.onArchiveHandler = this.onArchiveHandler.bind(this);
     this.onSearchHandler = this.onSearchHandler.bind(this);
+    this.onTabChangeHandler = this.onTabChangeHandler.bind(this);
   }
 
   onAddNoteHandler({ title, body }) {
@@ -51,10 +55,14 @@ class App extends React.Component {
     this.setState({ searchKeyword: keyword });
   }
 
-  render() {
-    const { notes, searchKeyword } = this.state;
+  onTabChangeHandler(tab) {
+    this.setState({ activeTab: tab });
+  }
 
-    const filteredNotes = notes.filter((note) => {
+  render() {
+    const { notes, searchKeyword, activeTab } = this.state;
+
+    const keywordFiltered = notes.filter((note) => {
       const keyword = searchKeyword.toLowerCase();
       return (
         note.title.toLowerCase().includes(keyword) ||
@@ -62,43 +70,41 @@ class App extends React.Component {
       );
     });
 
-    const activeNotes = filteredNotes.filter((note) => !note.archived);
-    const archivedNotes = filteredNotes.filter((note) => note.archived);
+    const activeNotes = keywordFiltered.filter((n) => !n.archived);
+    const archivedNotes = keywordFiltered.filter((n) => n.archived);
+
+    let displayedNotes;
+    if (activeTab === 'semua') displayedNotes = keywordFiltered;
+    else if (activeTab === 'aktif') displayedNotes = activeNotes;
+    else displayedNotes = archivedNotes;
+
+    const dataTestId = activeTab === 'arsip' ? 'archived-notes-list' : 'active-notes-list';
 
     return (
-      <div className="note-app" data-testid="note-app">
-        <div className="note-app__header" data-testid="note-app-header">
-          <h1>Notes</h1>
-          <NoteSearch onSearch={this.onSearchHandler} />
-        </div>
-        <div className="note-app__body" data-testid="note-app-body">
-          <NoteInput addNote={this.onAddNoteHandler} />
-          <section
-            aria-labelledby="active-notes-title"
-            data-testid="active-notes-section"
-          >
-            <h2 id="active-notes-title">Catatan Aktif</h2>
+      <div className="mindnote-app">
+        <Sidebar
+          activeNav={activeTab}
+          onNavChange={this.onTabChangeHandler}
+          onSearch={this.onSearchHandler}
+        />
+        <div className="mindnote-main">
+          <TopNavbar
+            activeTab={activeTab}
+            onTabChange={this.onTabChangeHandler}
+          />
+          <div className="mindnote-content">
+            {notes.length === 0 && (
+              <HeroBanner onAddClick={() => {}} />
+            )}
+            <NoteInput addNote={this.onAddNoteHandler} />
             <NotesList
-              notes={activeNotes}
+              notes={displayedNotes}
               onDelete={this.onDeleteHandler}
               onArchive={this.onArchiveHandler}
-              dataTestId="active-notes-list"
               searchKeyword={searchKeyword}
+              dataTestId={dataTestId}
             />
-          </section>
-          <section
-            aria-labelledby="archived-notes-title"
-            data-testid="archived-notes-section"
-          >
-            <h2 id="archived-notes-title">Arsip</h2>
-            <NotesList
-              notes={archivedNotes}
-              onDelete={this.onDeleteHandler}
-              onArchive={this.onArchiveHandler}
-              dataTestId="archived-notes-list"
-              searchKeyword={searchKeyword}
-            />
-          </section>
+          </div>
         </div>
       </div>
     );
