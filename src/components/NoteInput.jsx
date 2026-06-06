@@ -58,20 +58,28 @@ class NoteInput extends React.Component {
           <div className="note-input-hero">
             <img
               src="/icons/matahari.png"
-              alt="Buat catatan baru"
-              className="note-input-hero__img"
+              alt="ilustrasi"
+              className="note-input-hero__img note-input-hero__img--left"
               draggable="false"
             />
-            <p className="note-input-hero__tagline">
-              Capture ideas before they disappear
-            </p>
-            <button
-              className="note-input-hero__cta btn-brand"
-              onClick={() => this.setState({ showForm: true })}
-            >
-              <Plus size={18} />
-              Buat Catatan Pertama
-            </button>
+            <div className="note-input-hero__center">
+              <p className="note-input-hero__tagline">
+                Tulis catatan Anda di sini
+              </p>
+              <button
+                className="note-input-hero__cta btn-brand"
+                onClick={() => this.setState({ showForm: true })}
+              >
+                <Plus size={18} />
+                Buat Catatan Pertama
+              </button>
+            </div>
+            <img
+              src="/icons/donat.png"
+              alt="ilustrasi"
+              className="note-input-hero__img note-input-hero__img--right"
+              draggable="false"
+            />
           </div>
         </div>
       );
