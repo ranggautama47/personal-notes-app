@@ -5,6 +5,7 @@ import NotesList from './NotesList';
 import Sidebar from './Sidebar';
 import TopNavbar from './TopNavbar';
 import HeroBanner from './HeroBanner';
+import Footer from './Footer';
 
 class App extends React.Component {
   constructor(props) {
@@ -91,6 +92,8 @@ class App extends React.Component {
           <TopNavbar
             activeTab={activeTab}
             onTabChange={this.onTabChangeHandler}
+            onSearch={this.onSearchHandler}
+            searchKeyword={searchKeyword}
           />
           <div className="mindnote-content">
             {notes.length === 0 && (
@@ -104,6 +107,7 @@ class App extends React.Component {
               searchKeyword={searchKeyword}
               dataTestId={dataTestId}
             />
+            <Footer />
           </div>
         </div>
       </div>
