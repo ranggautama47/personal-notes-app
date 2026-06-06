@@ -1,0 +1,66 @@
+[33mcommit 8ddd15673a272f48f9c7e480cd1844fad8a4f596[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mphase2-redesign[m[33m)[m
+Author: ranggautama47 <ranggautama737@gmail.com>
+Date:   Sat Jun 6 11:26:48 2026 +0700
+
+    chore: add Plus Jakarta Sans font
+
+[33mcommit dfcc426390208ae5c9e76cbb935e28ce8cb6fea1[m
+Author: ranggautama47 <ranggautama737@gmail.com>
+Date:   Sat Jun 6 11:26:29 2026 +0700
+
+    chore: add custom PNG icons to public/icons
+
+[33mcommit 1c83634c60722d013768548f8d97c427df2e4715[m
+Author: ranggautama47 <ranggautama737@gmail.com>
+Date:   Sat Jun 6 11:26:17 2026 +0700
+
+    feat: add Sidebar, TopNavbar, HeroBanner components
+
+[33mcommit 31dc6ca9a9458849fb17eceabcbeb464bf1acb09[m
+Author: ranggautama47 <ranggautama737@gmail.com>
+Date:   Sat Jun 6 11:23:50 2026 +0700
+
+    refactor: add activeTab state and tab filter handler
+
+[33mcommit e18bd78dccdef61ffefcd862b2f7a8493647c007[m
+Author: ranggautama47 <ranggautama737@gmail.com>
+Date:   Sat Jun 6 11:23:33 2026 +0700
+
+    feat: add Sidebar and TopNavbar components
+
+[33mcommit af0549545b71d438e1455afae6db9444572b45bb[m
+Author: ranggautama47 <ranggautama737@gmail.com>
+Date:   Sat Jun 6 11:23:05 2026 +0700
+
+    style: replace CSS with MindNote earthy theme
+
+[33mcommit 4ec8146839ba38bbcfe14d36058bdfb2111140f5[m
+Author: ranggautama47 <ranggautama737@gmail.com>
+Date:   Sat Jun 6 11:22:07 2026 +0700
+
+    chore: install lucide-react
+
+[33mcommit 1c3ac8778ae3f073832233aa5a95c7c50944d7b4[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Merge: 956f4d0 6e3d523
+Author: ranggautama47 <ranggautama737@gmail.com>
+Date:   Sat Jun 6 10:30:29 2026 +0700
+
+    Merge branch 'main' of https://github.com/ranggautama47/personal-notes-app
+
+[33mcommit 956f4d0adf4a9b10413e6b1b42a5fd687a53268e[m
+Author: ranggautama47 <ranggautama737@gmail.com>
+Date:   Sat Jun 6 10:20:43 2026 +0700
+
+    feat: initial submission - Dicoding React Pemula Advanced
+
+[33mcommit 6e3d52354667bbe6db5b5b157f8b586c4dadd2eb[m
+Author: ranggautama47 <ranggautama737@gmail.com>
+Date:   Sat Jun 6 10:14:21 2026 +0700
+
+    Delete README.md
+
+[33mcommit dd15eda5094205cc6b4897c0327d64ab4a616103[m
+Author: ranggautama47 <ranggautama737@gmail.com>
+Date:   Sat Jun 6 10:12:18 2026 +0700
+
+    Initial commit

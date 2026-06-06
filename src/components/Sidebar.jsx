@@ -1,8 +1,8 @@
-import React from 'react';
-import { Search, BookOpen, Archive, Settings } from 'lucide-react';
+import React from "react";
+import { Search, BookOpen, Archive, Settings, User } from "lucide-react";
 
 function Sidebar({ activeNav, onNavChange, onSearch }) {
-  const [keyword, setKeyword] = React.useState('');
+  const [keyword, setKeyword] = React.useState("");
 
   const onSearchChange = (e) => {
     const value = e.target.value;
@@ -13,7 +13,14 @@ function Sidebar({ activeNav, onNavChange, onSearch }) {
   return (
     <aside className="mindnote-sidebar">
       <div className="sidebar-logo">
-        <div className="sidebar-logo__icon">M</div>
+        <img
+          src="/icons/iconBrand.png"
+          alt="MindNote"
+          width={46}
+          height={46}
+          className="sidebar-logo__img"
+          draggable="false"
+        />
         <span className="sidebar-logo__text">MindNote</span>
       </div>
 
@@ -29,15 +36,15 @@ function Sidebar({ activeNav, onNavChange, onSearch }) {
 
       <nav className="sidebar-nav">
         <button
-          className={`sidebar-nav__item ${activeNav === 'aktif' ? 'active' : ''}`}
-          onClick={() => onNavChange('aktif')}
+          className={`sidebar-nav__item ${activeNav === "aktif" ? "active" : ""}`}
+          onClick={() => onNavChange("aktif")}
         >
           <BookOpen size={18} />
           <span>Catatan Aktif</span>
         </button>
         <button
-          className={`sidebar-nav__item ${activeNav === 'arsip' ? 'active' : ''}`}
-          onClick={() => onNavChange('arsip')}
+          className={`sidebar-nav__item ${activeNav === "arsip" ? "active" : ""}`}
+          onClick={() => onNavChange("arsip")}
         >
           <Archive size={18} />
           <span>Arsip</span>
@@ -49,7 +56,9 @@ function Sidebar({ activeNav, onNavChange, onSearch }) {
       </nav>
 
       <div className="sidebar-user">
-        <div className="sidebar-user__avatar">A</div>
+        <div className="sidebar-user__avatar">
+          <User size={18} />
+        </div>
         <div className="sidebar-user__info">
           <span className="sidebar-user__name">Rangga</span>
           <span className="sidebar-user__email">rangga@email.com</span>

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Plus } from 'lucide-react';
+import React from "react";
+import { Plus } from "lucide-react";
 
 class NoteInput extends React.Component {
   constructor(props) {
@@ -7,10 +7,10 @@ class NoteInput extends React.Component {
 
     this.state = {
       // TODO [Basic] kelola nilai title sebagai controlled input.
-      title: '',
+      title: "",
       // TODO [Basic] kelola nilai body sebagai controlled textarea.
-      body: '',
-      showForm: false
+      body: "",
+      showForm: false,
     };
 
     this.onTitleChangeEventHandler = this.onTitleChangeEventHandler.bind(this);
@@ -42,9 +42,9 @@ class NoteInput extends React.Component {
     });
 
     this.setState({
-      title: '',
-      body: '',
-      showForm: false
+      title: "",
+      body: "",
+      showForm: false,
     });
   }
 
@@ -60,8 +60,11 @@ class NoteInput extends React.Component {
               src="/icons/matahari.png"
               alt="Buat catatan baru"
               className="note-input-hero__img"
+              draggable="false"
             />
-            <p className="note-input-hero__tagline">Capture ideas before they disappear</p>
+            <p className="note-input-hero__tagline">
+              Capture ideas before they disappear
+            </p>
             <button
               className="note-input-hero__cta btn-brand"
               onClick={() => this.setState({ showForm: true })}

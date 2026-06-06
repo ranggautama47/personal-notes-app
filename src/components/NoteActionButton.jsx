@@ -1,4 +1,5 @@
 import React from 'react';
+import { Trash2, Archive, ArchiveRestore } from 'lucide-react';
 
 function NoteActionButton({ variant, onClick, isArchived }) {
   if (variant === 'delete') {
@@ -9,7 +10,8 @@ function NoteActionButton({ variant, onClick, isArchived }) {
         onClick={onClick}
         data-testid="note-item-delete-button"
       >
-        Delete
+        <Trash2 size={16} />
+        <span>Hapus</span>
       </button>
     );
   }
@@ -22,7 +24,8 @@ function NoteActionButton({ variant, onClick, isArchived }) {
         onClick={onClick}
         data-testid="note-item-archive-button"
       >
-        {isArchived ? 'Aktifkan' : 'Arsipkan'}
+        {isArchived ? <ArchiveRestore size={16} /> : <Archive size={16} />}
+        <span>{isArchived ? 'Aktifkan' : 'Arsipkan'}</span>
       </button>
     );
   }
