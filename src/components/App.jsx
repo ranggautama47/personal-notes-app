@@ -15,6 +15,7 @@ class App extends React.Component {
       notes: getInitialData(),
       searchKeyword: '',
       activeTab: 'semua',
+      viewMode: 'grid',
     };
 
     this.onAddNoteHandler = this.onAddNoteHandler.bind(this);
@@ -22,6 +23,7 @@ class App extends React.Component {
     this.onArchiveHandler = this.onArchiveHandler.bind(this);
     this.onSearchHandler = this.onSearchHandler.bind(this);
     this.onTabChangeHandler = this.onTabChangeHandler.bind(this);
+    this.onViewModeChangeHandler = this.onViewModeChangeHandler.bind(this);
   }
 
   onAddNoteHandler({ title, body }) {
@@ -60,8 +62,12 @@ class App extends React.Component {
     this.setState({ activeTab: tab });
   }
 
+  onViewModeChangeHandler(mode) {
+    this.setState({ viewMode: mode });
+  }
+
   render() {
-    const { notes, searchKeyword, activeTab } = this.state;
+    const { notes, searchKeyword, activeTab, viewMode } = this.state;
 
     const keywordFiltered = notes.filter((note) => {
       const keyword = searchKeyword.toLowerCase();
@@ -99,16 +105,21 @@ class App extends React.Component {
             {notes.length === 0 && (
               <HeroBanner onAddClick={() => {}} />
             )}
-            <NoteInput addNote={this.onAddNoteHandler} />
+            <NoteInput
+              addNote={this.onAddNoteHandler}
+              viewMode={viewMode}
+              onViewChange={this.onViewModeChangeHandler}
+            />
             <NotesList
               notes={displayedNotes}
               onDelete={this.onDeleteHandler}
               onArchive={this.onArchiveHandler}
               searchKeyword={searchKeyword}
               dataTestId={dataTestId}
+              viewMode={viewMode}
             />
-            <Footer />
           </div>
+          <Footer />
         </div>
       </div>
     );
