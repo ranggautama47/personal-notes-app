@@ -6,7 +6,7 @@ const monthNames = [
   'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
 ];
 
-function NotesList({ notes, onDelete, onArchive, dataTestId = 'notes-list', searchKeyword = '' }) {
+function NotesList({ notes, onDelete, onArchive, dataTestId = 'notes-list', searchKeyword = '', viewMode = 'grid' }) {
   if (!notes || notes.length === 0) {
     return (
       <div className="notes-list" data-testid={dataTestId}>
@@ -64,7 +64,7 @@ function NotesList({ notes, onDelete, onArchive, dataTestId = 'notes-list', sear
                 {groups[groupKey].length} catatan
               </span>
             </div>
-            <div className="notes-group__items">
+            <div className={`notes-group__items ${viewMode === 'list' ? 'notes-group__items--list' : ''}`}>
               {groups[groupKey].map((note) => (
                 <NoteItem
                   key={note.id}
