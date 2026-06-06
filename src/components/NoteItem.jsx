@@ -27,12 +27,15 @@ function NoteItem({ note, onDelete, onArchive, searchKeyword = '' }) {
       data-note-id={note?.id}
     >
       <div className="note-item__content" data-testid="note-item-content">
-        <h3 className="note-item__title" data-testid="note-item-title">
-          {highlightText(note.title, searchKeyword)}
-        </h3>
-        <p className="note-item__date" data-testid="note-item-date">
-          {showFormattedDate(note.createdAt)}
-        </p>
+        <div className="note-item__header">
+          <h3 className="note-item__title" data-testid="note-item-title">
+            {highlightText(note.title, searchKeyword)}
+          </h3>
+          <span className="note-item__date" data-testid="note-item-date">
+            {showFormattedDate(note.createdAt)}
+          </span>
+        </div>
+        <div className="note-item__divider" />
         <p className="note-item__body" data-testid="note-item-body">
           {highlightText(note.body, searchKeyword)}
         </p>
