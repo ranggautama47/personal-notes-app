@@ -1,4 +1,5 @@
 import React from 'react';
+import { Plus } from 'lucide-react';
 
 class NoteInput extends React.Component {
   constructor(props) {
@@ -8,7 +9,8 @@ class NoteInput extends React.Component {
       // TODO [Basic] kelola nilai title sebagai controlled input.
       title: '',
       // TODO [Basic] kelola nilai body sebagai controlled textarea.
-      body: ''
+      body: '',
+      showForm: false
     };
 
     this.onTitleChangeEventHandler = this.onTitleChangeEventHandler.bind(this);
@@ -42,6 +44,7 @@ class NoteInput extends React.Component {
     this.setState({
       title: '',
       body: '',
+      showForm: false
     });
   }
 
@@ -49,47 +52,81 @@ class NoteInput extends React.Component {
     const remainingChars = 50 - this.state.title.length;
     const showError = this.state.body.length > 0 && this.state.body.length < 10;
 
+    if (!this.state.showForm) {
+      return (
+        <div className="note-input" data-testid="note-input">
+          <div className="note-input-hero">
+            <img
+              src="/icons/matahari.png"
+              alt="Buat catatan baru"
+              className="note-input-hero__img"
+            />
+            <p className="note-input-hero__tagline">Capture ideas before they disappear</p>
+            <button
+              className="note-input-hero__cta btn-brand"
+              onClick={() => this.setState({ showForm: true })}
+            >
+              <Plus size={18} />
+              Buat Catatan Pertama
+            </button>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="note-input" data-testid="note-input">
-        <h2>Buat catatan</h2>
+        <div className="note-input-form-wrapper">
+          <div className="note-input-form-header">
+            <h2>Buat catatan</h2>
+            <button
+              className="note-input-close"
+              onClick={() => this.setState({ showForm: false })}
+              aria-label="Tutup form"
+            >
+              ✕
+            </button>
+          </div>
 
-        {showError && (
-          <p className="note-input__feedback--error">
-            Isi catatan minimal harus 10 karakter
-          </p>
-        )}
+          {showError && (
+            <p className="note-input__feedback--error">
+              Isi catatan minimal harus 10 karakter
+            </p>
+          )}
 
-        <form
-          onSubmit={this.onSubmitEventHandler}
-          data-testid="note-input-form"
-        >
-          <p
-            className="note-input__title__char-limit"
-            data-testid="note-input-title-remaining"
+          <form
+            onSubmit={this.onSubmitEventHandler}
+            data-testid="note-input-form"
           >
-            Sisa karakter: {remainingChars}
-          </p>
-          <input
-            className="note-input__title"
-            type="text"
-            placeholder="Ini adalah judul ..."
-            value={this.state.title}
-            onChange={this.onTitleChangeEventHandler}
-            required
-            data-testid="note-input-title-field"
-          />
-          <textarea
-            className="note-input__body"
-            placeholder="Tuliskan catatanmu di sini ..."
-            value={this.state.body}
-            onChange={this.onBodyChangeEventHandler}
-            required
-            data-testid="note-input-body-field"
-          />
-          <button type="submit" data-testid="note-input-submit-button">
-            Buat
-          </button>
-        </form>
+            <p
+              className="note-input__title__char-limit"
+              data-testid="note-input-title-remaining"
+            >
+              Sisa karakter: {remainingChars}
+            </p>
+            <input
+              className="note-input__title"
+              type="text"
+              placeholder="Ini adalah judul ..."
+              value={this.state.title}
+              onChange={this.onTitleChangeEventHandler}
+              required
+              data-testid="note-input-title-field"
+            />
+            <textarea
+              className="note-input__body"
+              placeholder="Tuliskan catatanmu di sini ..."
+              value={this.state.body}
+              onChange={this.onBodyChangeEventHandler}
+              required
+              data-testid="note-input-body-field"
+            />
+            <button type="submit" data-testid="note-input-submit-button">
+              <Plus size={18} />
+              Buat
+            </button>
+          </form>
+        </div>
       </div>
     );
   }
