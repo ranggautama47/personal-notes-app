@@ -10,12 +10,17 @@ function NotesList({ notes, onDelete, onArchive, dataTestId = 'notes-list', sear
   if (!notes || notes.length === 0) {
     return (
       <div className="notes-list" data-testid={dataTestId}>
-        <p
+        <div
           className="notes-list__empty-message"
           data-testid={`${dataTestId}-empty`}
         >
-          Tidak ada catatan
-        </p>
+          <img
+            src="/icons/donat.png"
+            alt="kosong"
+            className="notes-list__empty-img"
+          />
+          <p>Tidak ada catatan</p>
+        </div>
       </div>
     );
   }

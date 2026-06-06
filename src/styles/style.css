@@ -1,27 +1,27 @@
 :root {
-  --color-bg-main: #F5EFE6;
-  --color-bg-sidebar: #EDE0D4;
-  --color-bg-card: #FFFFFF;
-  --color-bg-card-hover: #FDF8F3;
+  --color-bg-main: #f5efe6;
+  --color-bg-sidebar: #ede0d4;
+  --color-bg-card: #ffffff;
+  --color-bg-card-hover: #fdf8f3;
 
-  --color-brand: #A0522D;
-  --color-brand-light: #C4855A;
-  --color-brand-muted: #E8C9A0;
+  --color-brand: #a0522d;
+  --color-brand-light: #c4855a;
+  --color-brand-muted: #e8c9a0;
 
-  --color-text-primary: #2C1810;
-  --color-text-secondary: #6B4C3B;
-  --color-text-muted: #A08070;
+  --color-text-primary: #2c1810;
+  --color-text-secondary: #6b4c3b;
+  --color-text-muted: #a08070;
 
-  --color-border: #D4B896;
-  --color-border-light: #EAD9C8;
+  --color-border: #d4b896;
+  --color-border-light: #ead9c8;
 
-  --color-tab-active-bg: #E8C9A0;
-  --color-tab-dot: #A0522D;
+  --color-tab-active-bg: #e8c9a0;
+  --color-tab-dot: #a0522d;
 
-  --color-nav-active: #F0E4D4;
+  --color-nav-active: #f0e4d4;
 
-  --color-delete: #C0392B;
-  --color-archive: #A0522D;
+  --color-delete: #c0392b;
+  --color-archive: #a0522d;
 
   --text-xs: 11px;
   --text-sm: 13px;
@@ -39,13 +39,15 @@
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   background-color: var(--color-bg-main);
   color: var(--color-text-primary);
 }
 
-input, textarea, button {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+input,
+textarea,
+button {
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 .mindnote-app {
@@ -142,7 +144,9 @@ input, textarea, button {
   font-size: var(--text-md);
   color: var(--color-text-secondary);
   text-align: left;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
 }
 
 .sidebar-nav__item:hover {
@@ -154,6 +158,26 @@ input, textarea, button {
   background-color: var(--color-nav-active);
   color: var(--color-brand);
   font-weight: 600;
+}
+
+.sidebar-brand-image {
+  padding: 8px 8px 16px 8px;
+  display: flex;
+  justify-content: center;
+  opacity: 0.2;
+  transition: opacity 0.3s ease;
+  margin-top: -10px;
+}
+
+.sidebar-brand-image:hover {
+  opacity: 0.35;
+}
+
+.sidebar-brand-image img {
+  width: 160px;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
 }
 
 .sidebar-user {
@@ -273,7 +297,7 @@ input, textarea, button {
   border: none;
   background: transparent;
   border-radius: 20px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 14px;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -323,7 +347,7 @@ input, textarea, button {
   background: transparent;
   border: none;
   outline: none;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 14px;
   color: var(--color-text-primary);
   min-width: 0;
@@ -365,7 +389,9 @@ input, textarea, button {
   background-color: var(--color-bg-card);
   cursor: pointer;
   color: var(--color-text-muted);
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
 }
 
 .topnav-icon-btn:hover {
@@ -402,7 +428,7 @@ input, textarea, button {
   padding: 12px 16px;
   background: transparent;
   border: none;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 14px;
   color: var(--color-text-secondary);
   cursor: pointer;
@@ -454,8 +480,14 @@ input, textarea, button {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-6px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .mindnote-content {
@@ -578,23 +610,42 @@ input, textarea, button {
 
 .note-input-hero {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   gap: 16px;
-  padding: 32px;
-  text-align: center;
+  padding: 24px 32px;
+  background: var(--color-bg-card);
+  border-radius: 16px;
+  border: 1px solid var(--color-border-light);
+  margin-bottom: 32px;
 }
 
 .note-input-hero__img {
-  width: 160px;
-  height: 160px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
+  flex-shrink: 0;
+}
+
+.note-input-hero__center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  text-align: center;
 }
 
 .note-input-hero__tagline {
   color: var(--color-text-muted);
   font-size: 14px;
-  font-style: italic;
+}
+
+.note-input-hero__cta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .note-input-form-wrapper {
@@ -624,8 +675,12 @@ input, textarea, button {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .note-input button[type="submit"] {
@@ -653,12 +708,73 @@ input, textarea, button {
 }
 
 .mindnote-footer {
-  text-align: center;
-  padding: 24px;
+  width: 100%;
+  padding: 24px 0;
   color: var(--color-text-muted);
   font-size: 12px;
-  border-top: 1px solid var(--color-border-light);
-  margin-top: 48px;
+  border-top: 2px solid var(--color-border);
+  margin-top: 64px;
+  background: var(--color-bg-sidebar);
+}
+
+.mindnote-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.mindnote-footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.mindnote-footer__brand img {
+  object-fit: contain;
+}
+
+.mindnote-footer__text {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 12px;
+}
+
+.mindnote-footer__text-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: rgba(160, 120, 96, 0.12);
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .mindnote-footer {
+    padding: 20px 16px;
+    text-align: center;
+  }
+
+  .mindnote-footer__inner {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (min-width: 769px) {
+  .mindnote-footer {
+    padding: 24px 40px;
+  }
 }
 
 .notes-list {
@@ -675,35 +791,60 @@ input, textarea, button {
 }
 
 .notes-list__empty-message {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 48px 0;
   color: var(--color-text-muted);
-  padding: 32px;
-  font-size: var(--text-base);
+  text-align: center;
   grid-column: 1 / -1;
+}
+
+.notes-list__empty-img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  opacity: 0.6;
 }
 
 .notes-group {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding-top: 24px;
+  border-top: 2px solid var(--color-border);
+}
+
+.notes-group:first-of-type {
+  border-top: none;
+  padding-top: 0;
 }
 
 .notes-group__header {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
+  background: var(--color-bg-sidebar);
+  padding: 10px 16px;
+  border-radius: 12px;
+  border-left: 4px solid var(--color-brand);
 }
 
 .notes-group__title {
   font-size: var(--text-md);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-text-primary);
   text-transform: capitalize;
 }
 
 .notes-group__count {
   font-size: var(--text-xs);
-  color: var(--color-text-muted);
+  font-weight: 600;
+  color: var(--color-brand);
+  background: var(--color-brand-muted);
+  padding: 2px 10px;
+  border-radius: 12px;
 }
 
 .notes-group__items {
@@ -717,8 +858,10 @@ input, textarea, button {
   border: 1px solid var(--color-border);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(160, 82, 45, 0.08);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(160, 82, 45, 0.18);
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
   display: flex;
   flex-direction: column;
 }
@@ -733,26 +876,40 @@ input, textarea, button {
   flex: 1;
 }
 
-.note-item__title {
-  font-size: var(--text-lg);
-  font-weight: 600;
-  color: var(--color-text-primary);
-  margin-bottom: 4px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.note-item__date {
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
+.note-item__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
   margin-bottom: 8px;
 }
 
+.note-item__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.note-item__date {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.note-item__divider {
+  height: 1px;
+  background: var(--color-border-light);
+  margin-bottom: 10px;
+}
+
 .note-item__body {
-  font-size: var(--text-base);
+  font-size: 13px;
   color: var(--color-text-secondary);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .note-item mark {
@@ -780,7 +937,9 @@ input, textarea, button {
   cursor: pointer;
   font-size: var(--text-sm);
   font-weight: 600;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
 }
 
 .note-item__delete-button {
