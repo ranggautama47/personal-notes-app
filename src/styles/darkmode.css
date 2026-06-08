@@ -274,3 +274,35 @@
 .dark-mode .pengaturan-back:hover {
   color: #D48357;
 }
+
+/* Font Size Cards */
+.dark-mode .pengaturan-fontsize__card {
+  background-color: #231E1B;
+  border-color: #2C2420;
+}
+
+.dark-mode .pengaturan-fontsize__card:hover {
+  border-color: #D48357;
+  background-color: #2C2420;
+}
+
+.dark-mode .pengaturan-fontsize__card.active {
+  border-color: #D48357;
+  background-color: #2C1F18;
+}
+
+.dark-mode .pengaturan-fontsize__preview {
+  color: #F6F2EE;
+}
+
+.dark-mode .pengaturan-fontsize__label {
+  color: #A08C82;
+}
+
+.dark-mode .pengaturan-fontsize__card.active .pengaturan-fontsize__label {
+  color: #D48357;
+}
+
+.dark-mode .pengaturan-fontsize__px {
+  color: #6B5E57;
+}

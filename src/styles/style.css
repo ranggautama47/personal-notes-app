@@ -1,4 +1,6 @@
 :root {
+  --font-size-base: 15px;
+
   --color-bg-main: #f5efe6;
   --color-bg-sidebar: #ede0d4;
   --color-bg-card: #ffffff;
@@ -937,7 +939,7 @@ button {
 }
 
 .note-item__body {
-  font-size: 13px;
+  font-size: var(--font-size-base);
   color: var(--color-text-secondary);
   line-height: 1.6;
 }
@@ -1381,4 +1383,63 @@ button {
   color: var(--color-brand);
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+/* Font Size Selector */
+.pengaturan-fontsize {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pengaturan-fontsize__options {
+  display: flex;
+  gap: 12px;
+}
+
+.pengaturan-fontsize__card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 8px;
+  background: var(--color-bg-main);
+  border: 2px solid var(--color-border-light);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.pengaturan-fontsize__card:hover {
+  border-color: var(--color-brand-muted);
+  background: var(--color-bg-card);
+}
+
+.pengaturan-fontsize__card.active {
+  border-color: var(--color-brand);
+  background: var(--color-bg-card);
+  box-shadow: 0 0 0 3px rgba(160, 82, 45, 0.1);
+}
+
+.pengaturan-fontsize__preview {
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.pengaturan-fontsize__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.pengaturan-fontsize__px {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.pengaturan-fontsize__card.active .pengaturan-fontsize__label {
+  color: var(--color-brand);
 }

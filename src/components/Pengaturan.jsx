@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { User, Moon, Sun, Info, ChevronLeft } from 'lucide-react';
 
-function Pengaturan({ darkMode, onDarkModeToggle, onNavChange }) {
+function Pengaturan({ darkMode, onDarkModeToggle, onNavChange, fontSize, onFontSizeChange }) {
 
   const [nama, setNama] = useState(() => {
     return localStorage.getItem('mindnote_nama') || 'Rangga';
@@ -97,6 +97,33 @@ function Pengaturan({ darkMode, onDarkModeToggle, onNavChange }) {
             >
               <span className="pengaturan-toggle__thumb" />
             </button>
+          </div>
+
+          <div className="pengaturan-fontsize">
+            <label className="pengaturan-field__label">Ukuran Huruf</label>
+            <div className="pengaturan-fontsize__options">
+              {[
+                { value: 'kecil', label: 'Kecil', px: '13px', preview: 'Aa' },
+                { value: 'sedang', label: 'Sedang', px: '15px', preview: 'Aa' },
+                { value: 'besar', label: 'Besar', px: '18px', preview: 'Aa' },
+              ].map((option) => (
+                <button
+                  key={option.value}
+                  className={`pengaturan-fontsize__card ${fontSize === option.value ? 'active' : ''}`}
+                  onClick={() => onFontSizeChange(option.value)}
+                  aria-label={`Ukuran huruf ${option.label}`}
+                >
+                  <span
+                    className="pengaturan-fontsize__preview"
+                    style={{ fontSize: option.px }}
+                  >
+                    {option.preview}
+                  </span>
+                  <span className="pengaturan-fontsize__label">{option.label}</span>
+                  <span className="pengaturan-fontsize__px">{option.px}</span>
+                </button>
+              ))}
+            </div>
           </div>
 
           <p className="pengaturan-hint">

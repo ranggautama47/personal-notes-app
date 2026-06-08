@@ -18,6 +18,7 @@ class App extends React.Component {
       activeTab: 'semua',
       viewMode: 'grid',
       darkMode: false,
+      fontSize: localStorage.getItem('mindnote_fontsize') || 'sedang',
     };
 
     this.onAddNoteHandler = this.onAddNoteHandler.bind(this);
@@ -27,6 +28,17 @@ class App extends React.Component {
     this.onTabChangeHandler = this.onTabChangeHandler.bind(this);
     this.onViewModeChangeHandler = this.onViewModeChangeHandler.bind(this);
     this.onDarkModeToggle = this.onDarkModeToggle.bind(this);
+    this.onFontSizeChange = this.onFontSizeChange.bind(this);
+  }
+
+  componentDidMount() {
+    const savedSize = localStorage.getItem('mindnote_fontsize') || 'sedang';
+    const sizeMap = {
+      kecil: '13px',
+      sedang: '15px',
+      besar: '18px',
+    };
+    document.documentElement.style.setProperty('--font-size-base', sizeMap[savedSize]);
   }
 
   onAddNoteHandler({ title, body }) {
@@ -73,8 +85,19 @@ class App extends React.Component {
     this.setState(prev => ({ darkMode: !prev.darkMode }));
   }
 
+  onFontSizeChange(size) {
+    localStorage.setItem('mindnote_fontsize', size);
+    const sizeMap = {
+      kecil: '13px',
+      sedang: '15px',
+      besar: '18px',
+    };
+    document.documentElement.style.setProperty('--font-size-base', sizeMap[size]);
+    this.setState({ fontSize: size });
+  }
+
   render() {
-    const { notes, searchKeyword, activeTab, viewMode, darkMode } = this.state;
+    const { notes, searchKeyword, activeTab, viewMode, darkMode, fontSize } = this.state;
 
     const keywordFiltered = notes.filter((note) => {
       const keyword = searchKeyword.toLowerCase();
@@ -101,6 +124,8 @@ class App extends React.Component {
             darkMode={darkMode}
             onDarkModeToggle={this.onDarkModeToggle}
             onNavChange={this.onTabChangeHandler}
+            fontSize={fontSize}
+            onFontSizeChange={this.onFontSizeChange}
           />
         );
       }
