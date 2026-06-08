@@ -1,8 +1,23 @@
 import React from "react";
 import { Search, BookOpen, Archive, Settings, User } from "lucide-react";
 
-function Sidebar({ activeNav, onNavChange, onSearch }) {
+function Sidebar({ activeNav, onNavChange, onSearch, darkMode, onDarkModeToggle }) {
   const [keyword, setKeyword] = React.useState("");
+  const [userName, setUserName] = React.useState(
+    () => localStorage.getItem('mindnote_nama') || 'Rangga'
+  );
+  const [userEmail, setUserEmail] = React.useState(
+    () => localStorage.getItem('mindnote_email') || 'rangga@email.com'
+  );
+
+  React.useEffect(() => {
+    const syncUser = () => {
+      setUserName(localStorage.getItem('mindnote_nama') || 'Rangga');
+      setUserEmail(localStorage.getItem('mindnote_email') || 'rangga@email.com');
+    };
+    window.addEventListener('storage', syncUser);
+    return () => window.removeEventListener('storage', syncUser);
+  }, []);
 
   const onSearchChange = (e) => {
     const value = e.target.value;
@@ -49,19 +64,33 @@ function Sidebar({ activeNav, onNavChange, onSearch }) {
           <Archive size={18} />
           <span>Arsip</span>
         </button>
-        <button className="sidebar-nav__item">
+        <button
+          className={`sidebar-nav__item ${activeNav === "pengaturan" ? "active" : ""}`}
+          onClick={() => onNavChange("pengaturan")}
+        >
           <Settings size={18} />
           <span>Pengaturan</span>
         </button>
       </nav>
 
-      <div className="sidebar-user">
+      <div className="sidebar-darkmode">
+        <span className="sidebar-darkmode__label">Mode Gelap</span>
+        <button
+          className={`sidebar-darkmode__toggle ${darkMode ? 'active' : ''}`}
+          onClick={onDarkModeToggle}
+          aria-label="Toggle dark mode"
+        >
+          <span className="sidebar-darkmode__thumb" />
+        </button>
+      </div>
+
+      <div className="sidebar-user" onClick={() => onNavChange('pengaturan')} style={{cursor: 'pointer'}}>
         <div className="sidebar-user__avatar">
           <User size={18} />
         </div>
         <div className="sidebar-user__info">
-          <span className="sidebar-user__name">Rangga</span>
-          <span className="sidebar-user__email">rangga@email.com</span>
+          <span className="sidebar-user__name">{userName}</span>
+          <span className="sidebar-user__email">{userEmail}</span>
         </div>
         <Settings size={16} />
       </div>

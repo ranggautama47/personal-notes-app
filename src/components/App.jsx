@@ -6,6 +6,7 @@ import Sidebar from './Sidebar';
 import TopNavbar from './TopNavbar';
 import HeroBanner from './HeroBanner';
 import Footer from './Footer';
+import Pengaturan from './Pengaturan';
 
 class App extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class App extends React.Component {
       searchKeyword: '',
       activeTab: 'semua',
       viewMode: 'grid',
+      darkMode: false,
     };
 
     this.onAddNoteHandler = this.onAddNoteHandler.bind(this);
@@ -24,6 +26,7 @@ class App extends React.Component {
     this.onSearchHandler = this.onSearchHandler.bind(this);
     this.onTabChangeHandler = this.onTabChangeHandler.bind(this);
     this.onViewModeChangeHandler = this.onViewModeChangeHandler.bind(this);
+    this.onDarkModeToggle = this.onDarkModeToggle.bind(this);
   }
 
   onAddNoteHandler({ title, body }) {
@@ -66,8 +69,12 @@ class App extends React.Component {
     this.setState({ viewMode: mode });
   }
 
+  onDarkModeToggle() {
+    this.setState(prev => ({ darkMode: !prev.darkMode }));
+  }
+
   render() {
-    const { notes, searchKeyword, activeTab, viewMode } = this.state;
+    const { notes, searchKeyword, activeTab, viewMode, darkMode } = this.state;
 
     const keywordFiltered = notes.filter((note) => {
       const keyword = searchKeyword.toLowerCase();
@@ -87,12 +94,44 @@ class App extends React.Component {
 
     const dataTestId = activeTab === 'arsip' ? 'archived-notes-list' : 'active-notes-list';
 
+    const renderContent = () => {
+      if (activeTab === 'pengaturan') {
+        return (
+          <Pengaturan
+            darkMode={darkMode}
+            onDarkModeToggle={this.onDarkModeToggle}
+            onNavChange={this.onTabChangeHandler}
+          />
+        );
+      }
+
+      return (
+        <>
+          <NoteInput
+            addNote={this.onAddNoteHandler}
+            viewMode={viewMode}
+            onViewChange={this.onViewModeChangeHandler}
+          />
+          <NotesList
+            notes={displayedNotes}
+            onDelete={this.onDeleteHandler}
+            onArchive={this.onArchiveHandler}
+            searchKeyword={searchKeyword}
+            dataTestId={dataTestId}
+            viewMode={viewMode}
+          />
+        </>
+      );
+    };
+
     return (
-      <div className="mindnote-app">
+      <div className={`mindnote-app ${darkMode ? 'dark-mode' : ''}`}>
         <Sidebar
           activeNav={activeTab}
           onNavChange={this.onTabChangeHandler}
           onSearch={this.onSearchHandler}
+          darkMode={darkMode}
+          onDarkModeToggle={this.onDarkModeToggle}
         />
         <div className="mindnote-main">
           <TopNavbar
@@ -102,22 +141,7 @@ class App extends React.Component {
             searchKeyword={searchKeyword}
           />
           <div className="mindnote-content">
-            {notes.length === 0 && (
-              <HeroBanner onAddClick={() => {}} />
-            )}
-            <NoteInput
-              addNote={this.onAddNoteHandler}
-              viewMode={viewMode}
-              onViewChange={this.onViewModeChangeHandler}
-            />
-            <NotesList
-              notes={displayedNotes}
-              onDelete={this.onDeleteHandler}
-              onArchive={this.onArchiveHandler}
-              searchKeyword={searchKeyword}
-              dataTestId={dataTestId}
-              viewMode={viewMode}
-            />
+            {renderContent()}
           </div>
           <Footer />
         </div>
