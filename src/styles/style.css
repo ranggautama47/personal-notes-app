@@ -139,20 +139,22 @@ button {
   padding: 8px 8px 16px 8px;
   display: flex;
   justify-content: center;
-  opacity: 0.2;
-  transition: opacity 0.3s ease;
+  opacity: 0.15;
+  transition: opacity 0.4s ease, transform 0.4s ease;
   margin-top: -10px;
 }
 
 .sidebar-brand-image:hover {
   opacity: 0.35;
+  transform: scale(1.05);
 }
 
 .sidebar-brand-image img {
-  width: 160px;
+  width: 140px;
   height: auto;
   object-fit: contain;
   filter: grayscale(100%);
+  pointer-events: none;
 }
 
 .sidebar-user {

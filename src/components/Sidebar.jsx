@@ -73,6 +73,14 @@ function Sidebar({ activeNav, onNavChange, onSearch, darkMode, onDarkModeToggle 
         </button>
       </nav>
 
+      <div className="sidebar-brand-image">
+        <img
+          src="/icons/logoIcon_sidebar.png"
+          alt=""
+          draggable="false"
+        />
+      </div>
+
       <div className="sidebar-darkmode">
         <span className="sidebar-darkmode__label">Mode Gelap</span>
         <button
