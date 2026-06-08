@@ -7,6 +7,7 @@ import TopNavbar from './TopNavbar';
 import HeroBanner from './HeroBanner';
 import Footer from './Footer';
 import Pengaturan from './Pengaturan';
+import { Toaster } from './ui/sonner';
 
 class App extends React.Component {
   constructor(props) {
@@ -151,6 +152,7 @@ class App extends React.Component {
 
     return (
       <div className={`mindnote-app ${darkMode ? 'dark-mode' : ''}`}>
+        <Toaster theme={darkMode ? 'dark' : 'light'} closeButton />
         <Sidebar
           activeNav={activeTab}
           onNavChange={this.onTabChangeHandler}
