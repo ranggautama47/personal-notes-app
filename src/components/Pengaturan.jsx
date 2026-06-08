@@ -10,6 +10,7 @@ function Pengaturan({ darkMode, onDarkModeToggle, onNavChange, fontSize, onFontS
     return localStorage.getItem('mindnote_email') || 'rangga@email.com';
   });
   const [savedMessage, setSavedMessage] = useState('');
+  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
 
   const handleSimpan = () => {
     localStorage.setItem('mindnote_nama', nama);
@@ -145,13 +146,87 @@ function Pengaturan({ darkMode, onDarkModeToggle, onNavChange, fontSize, onFontS
               Dicoding Advanced dan redesign portofolio.
             </p>
             <div className="pengaturan-about__links">
-              <a href="#" className="pengaturan-about__link">Kebijakan Privasi</a>
-              <a href="#" className="pengaturan-about__link">Dukungan</a>
+              {/* Kebijakan Privasi — buka modal */}
+              <button
+                className="pengaturan-about__link"
+                onClick={() => setShowPrivacyModal(true)}
+              >
+                Kebijakan Privasi
+              </button>
+
+              {/* Dukungan — buka email client */}
+              <a
+                href="mailto:rangga@email.com?subject=Masukan%20untuk%20MindNote&body=Halo%20tim%20MindNote%2C%0A%0ASaya%20ingin%20menyampaikan%3A"
+                className="pengaturan-about__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Dukungan
+              </a>
             </div>
           </div>
         </section>
 
       </div>
+
+      {showPrivacyModal && (
+        <div
+          className="modal-overlay"
+          onClick={() => setShowPrivacyModal(false)}
+        >
+          <div
+            className="modal-box"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="modal-header">
+              <h2 className="modal-title">Kebijakan Privasi</h2>
+              <button
+                className="modal-close"
+                onClick={() => setShowPrivacyModal(false)}
+                aria-label="Tutup"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="modal-body">
+              <p>
+                MindNote adalah aplikasi catatan pribadi yang berjalan sepenuhnya
+                di browser Anda. Kami berkomitmen untuk menjaga privasi dan
+                keamanan data Anda.
+              </p>
+              <h3>Data yang Disimpan</h3>
+              <p>
+                Semua catatan, pengaturan profil, dan preferensi tampilan disimpan
+                secara lokal di perangkat Anda menggunakan <strong>localStorage</strong>.
+                Data Anda tidak pernah dikirim ke server eksternal manapun.
+              </p>
+              <h3>Keamanan Data</h3>
+              <p>
+                Karena data tersimpan di perangkat Anda sendiri, MindNote tidak
+                memiliki akses ke catatan pribadi Anda. Menghapus data browser
+                atau localStorage akan menghapus semua catatan secara permanen.
+              </p>
+              <h3>Perubahan Kebijakan</h3>
+              <p>
+                Kebijakan privasi ini dapat berubah sewaktu-waktu. Perubahan akan
+                diinformasikan melalui pembaruan aplikasi. Versi saat ini berlaku
+                sejak Juni 2025.
+              </p>
+            </div>
+
+            <div className="modal-footer">
+              <button
+                className="btn-brand"
+                onClick={() => setShowPrivacyModal(false)}
+              >
+                Mengerti
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }

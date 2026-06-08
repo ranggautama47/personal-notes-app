@@ -306,3 +306,38 @@
 .dark-mode .pengaturan-fontsize__px {
   color: #6B5E57;
 }
+
+/* MODAL */
+.dark-mode .modal-overlay {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.dark-mode .modal-box {
+  background: #1E1A17;
+  border-color: #2C2420;
+}
+
+.dark-mode .modal-header {
+  background: #1E1A17;
+}
+
+.dark-mode .modal-title {
+  color: #F6F2EE;
+}
+
+.dark-mode .modal-body p {
+  color: #A08C82;
+}
+
+.dark-mode .modal-body h3 {
+  color: #F6F2EE;
+}
+
+.dark-mode .modal-body strong {
+  color: #D48357;
+}
+
+.dark-mode .modal-close:hover {
+  background: #2C2420;
+  color: #F6F2EE;
+}
