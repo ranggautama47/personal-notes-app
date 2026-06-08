@@ -1,0 +1,276 @@
+/* ==============================================
+   DARK MODE — MindNote
+   Hanya target: Sidebar, NoteItem, Footer
+   TopNavbar & konten utama tetap light
+   ============================================== */
+
+/* ------ SIDEBAR ------ */
+.dark-mode .mindnote-sidebar {
+  background-color: #1A1411;
+  border-right: 1px solid #2C2420;
+}
+
+.dark-mode .sidebar-logo__text {
+  color: #F6F2EE;
+}
+
+.dark-mode .sidebar-search {
+  background-color: #231E1B;
+  border: 1px solid #2C2420;
+}
+
+.dark-mode .sidebar-search input {
+  color: #F6F2EE;
+}
+
+.dark-mode .sidebar-search input::placeholder {
+  color: #6B5E57;
+}
+
+.dark-mode .sidebar-search svg {
+  color: #6B5E57;
+}
+
+.dark-mode .sidebar-nav__item {
+  color: #A08C82;
+}
+
+.dark-mode .sidebar-nav__item:hover {
+  background-color: #231E1B;
+  color: #F6F2EE;
+}
+
+.dark-mode .sidebar-nav__item.active {
+  background-color: #2C1F18;
+  color: #D48357;
+}
+
+.dark-mode .sidebar-nav__item.active svg {
+  color: #D48357;
+}
+
+.dark-mode .sidebar-user {
+  background-color: #231E1B;
+  border: 1px solid #2C2420;
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.dark-mode .sidebar-user__name {
+  color: #F6F2EE;
+}
+
+.dark-mode .sidebar-user__email {
+  color: #6B5E57;
+}
+
+.dark-mode .sidebar-user svg {
+  color: #6B5E57;
+}
+
+/* ------ NOTE ITEM ------ */
+.dark-mode .note-item {
+  background-color: #1E1A17;
+  border: 1px solid #2C2420;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .note-item:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  border-color: #3D2E26;
+}
+
+.dark-mode .note-item__title {
+  color: #F6F2EE;
+}
+
+.dark-mode .note-item__date {
+  color: #B8A89C;
+}
+
+.dark-mode .note-item__divider {
+  background-color: #4A3A32;
+}
+
+.dark-mode .note-item__body {
+  color: #A08C82;
+}
+
+.dark-mode .note-item__action {
+  border-top: 1px solid #2C2420;
+}
+
+.dark-mode .note-item__delete-button {
+  background-color: transparent;
+  color: #E05A4A;
+  border-right: 1px solid #2C2420;
+}
+
+.dark-mode .note-item__delete-button:hover {
+  color: #FF6B5A;
+  background-color: #2C1A18;
+}
+
+.dark-mode .note-item__archive-button {
+  background-color: transparent;
+  color: #D48357;
+}
+
+.dark-mode .note-item__archive-button:hover {
+  color: #E8965F;
+  background-color: #2C1F18;
+}
+
+.dark-mode .note-item mark {
+  background-color: rgba(212, 131, 87, 0.25);
+  color: #D48357;
+}
+
+/* ------ FOOTER ------ */
+.dark-mode .mindnote-footer {
+  background-color: #13100E;
+  border-top: 1px solid #2C2420;
+  color: #6B5E57;
+}
+
+.dark-mode .mindnote-footer__brand span {
+  color: #A08C82;
+}
+
+.dark-mode .mindnote-footer p {
+  color: #6B5E57;
+}
+
+/* ------ DARK MODE TOGGLE BUTTON di Sidebar ------ */
+.sidebar-darkmode {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 4px;
+  margin-bottom: 8px;
+}
+
+.sidebar-darkmode__label {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.sidebar-darkmode__toggle {
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  background-color: var(--color-border);
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  transition: background-color 0.3s ease;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.sidebar-darkmode__toggle.active {
+  background-color: #D48357;
+}
+
+.sidebar-darkmode__thumb {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  transition: transform 0.3s ease;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.sidebar-darkmode__toggle.active .sidebar-darkmode__thumb {
+  transform: translateX(20px);
+}
+
+.dark-mode .sidebar-darkmode__label {
+  color: #A08C82;
+}
+
+/* Fix 1 — Garis divider di bawah judul+tanggal NoteItem */
+.dark-mode .note-item__divider {
+  background-color: #4A3A32;
+  opacity: 1;
+}
+
+/* Fix 2 — Hover effect tombol Hapus */
+.dark-mode .note-item__delete-button:hover {
+  background-color: rgba(224, 90, 74, 0.15);
+  color: #FF6B5A;
+}
+
+/* Fix 3 — Hover effect tombol Arsipkan */
+.dark-mode .note-item__archive-button:hover {
+  background-color: rgba(212, 131, 87, 0.15);
+  color: #E8965F;
+}
+
+/* Fix 4 — Border bawah action area */
+.dark-mode .note-item__action {
+  border-top: 1px solid #2C2420;
+}
+
+/* Fix 5 — Border kanan antara tombol Hapus dan Arsipkan */
+.dark-mode .note-item__delete-button {
+  border-right: 1px solid #2C2420;
+}
+
+/* ------ HALAMAN PENGATURAN ------ */
+.dark-mode .pengaturan-title {
+  color: #F6F2EE;
+}
+
+.dark-mode .pengaturan-card {
+  background-color: #1E1A17;
+  border-color: #2C2420;
+}
+
+.dark-mode .pengaturan-card__header h2 {
+  color: #F6F2EE;
+}
+
+.dark-mode .pengaturan-field__label {
+  color: #6B5E57;
+}
+
+.dark-mode .pengaturan-field__input {
+  background-color: #231E1B;
+  border-color: #2C2420;
+  color: #F6F2EE;
+}
+
+.dark-mode .pengaturan-field__input:focus {
+  border-color: #D48357;
+}
+
+.dark-mode .pengaturan-toggle-row__label {
+  color: #A08C82;
+}
+
+.dark-mode .pengaturan-hint {
+  color: #6B5E57;
+}
+
+.dark-mode .pengaturan-about__desc {
+  color: #A08C82;
+}
+
+.dark-mode .pengaturan-about__version {
+  color: #6B5E57;
+}
+
+.dark-mode .pengaturan-breadcrumb__current {
+  color: #A08C82;
+}
+
+.dark-mode .pengaturan-back {
+  color: #6B5E57;
+}
+
+.dark-mode .pengaturan-back:hover {
+  color: #D48357;
+}
