@@ -1,0 +1,86 @@
+/* Single source of truth for all color variables */
+
+:root {
+  /* Shadcn UI Semantic Colors - Light Earthy Warm */
+  --background: #f5efe6;
+  --foreground: #2c1810;
+  --card: #ffffff;
+  --card-foreground: #2c1810;
+  --popover: #ffffff;
+  --popover-foreground: #2c1810;
+  --primary: #a0522d;
+  --primary-foreground: #ffffff;
+  --secondary: #ede0d4;
+  --secondary-foreground: #2c1810;
+  --muted: #ede0d4;
+  --muted-foreground: #a08070;
+  --accent: #f0e4d4;
+  --accent-foreground: #a0522d;
+  --destructive: #c0392b;
+  --destructive-foreground: #ffffff;
+  --border: #d4b896;
+  --input: #d4b896;
+  --ring: #a0522d;
+  --radius: 12px;
+
+  /* Custom Earthy Warm Palette */
+  --color-bg-main: #f5efe6;
+  --color-bg-sidebar: #ede0d4;
+  --color-bg-card: #ffffff;
+  --color-bg-card-hover: #fdf8f3;
+  --color-brand: #a0522d;
+  --color-brand-light: #c4855a;
+  --color-brand-muted: #e8c9a0;
+  --color-text-primary: #2c1810;
+  --color-text-secondary: #6b4c3b;
+  --color-text-muted: #a08070;
+  --color-border: #d4b896;
+  --color-border-light: #ead9c8;
+  --color-tab-active-bg: #e8c9a0;
+  --color-tab-dot: #a0522d;
+  --color-nav-active: #f0e4d4;
+  --color-delete: #c0392b;
+  --color-archive: #a0522d;
+}
+
+.dark-mode, .dark {
+  /* Shadcn UI Semantic Colors - Dark Earthy Warm */
+  --background: #13100e;
+  --foreground: #f6f2ee;
+  --card: #1e1a17;
+  --card-foreground: #f6f2ee;
+  --popover: #1e1a17;
+  --popover-foreground: #f6f2ee;
+  --primary: #d48357;
+  --primary-foreground: #13100e;
+  --secondary: #231e1b;
+  --secondary-foreground: #f6f2ee;
+  --muted: #2c2420;
+  --muted-foreground: #a08c82;
+  --accent: #2c1f18;
+  --accent-foreground: #d48357;
+  --destructive: #e05a4a;
+  --destructive-foreground: #ffffff;
+  --border: #2c2420;
+  --input: #2c2420;
+  --ring: #d48357;
+
+  /* Custom Earthy Warm Palette - Dark */
+  --color-bg-main: #13100e;
+  --color-bg-sidebar: #1a1411;
+  --color-bg-card: #1e1a17;
+  --color-bg-card-hover: #231e1b;
+  --color-brand: #d48357;
+  --color-brand-light: #e09a6f;
+  --color-brand-muted: #3d2e26;
+  --color-text-primary: #f6f2ee;
+  --color-text-secondary: #a08c82;
+  --color-text-muted: #6b5e57;
+  --color-border: #2c2420;
+  --color-border-light: #4a3a32;
+  --color-tab-active-bg: #3d2e26;
+  --color-tab-dot: #d48357;
+  --color-nav-active: #2c1f18;
+  --color-delete: #e05a4a;
+  --color-archive: #d48357;
+}
