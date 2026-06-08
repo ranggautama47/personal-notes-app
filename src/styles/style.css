@@ -534,12 +534,7 @@ button {
 }
 
 .note-input {
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  border-radius: 16px;
-  padding: 24px;
-  margin-bottom: 32px;
-  max-width: 600px;
+  margin-bottom: 24px;
 }
 
 .note-input h2 {
@@ -612,8 +607,8 @@ button {
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  gap: 16px;
-  margin-bottom: 32px;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .note-input-hero {
@@ -622,16 +617,16 @@ button {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding: 24px 32px;
+  gap: 8px;
+  padding: 12px 16px;
   background: var(--color-bg-card);
   border-radius: 16px;
   border: 1px solid var(--color-border-light);
 }
 
 .note-input-hero__img {
-  width: 80px;
-  height: 80px;
+  width: 140px;
+  height: 140px;
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -640,7 +635,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   flex: 1;
   text-align: center;
 }
@@ -648,6 +643,7 @@ button {
 .note-input-hero__tagline {
   color: var(--color-text-muted);
   font-size: 14px;
+  line-height: 1.5;
 }
 
 .note-input-hero__cta {
@@ -725,6 +721,10 @@ button {
   background: var(--color-bg-sidebar);
 }
 
+.mindnote-footer p {
+  margin: 0;
+}
+
 .mindnote-footer__inner {
   display: flex;
   align-items: center;
@@ -769,19 +769,41 @@ button {
 
 @media (max-width: 768px) {
   .mindnote-footer {
-    padding: 20px 16px;
+    padding: 20px 24px;
     text-align: center;
   }
 
   .mindnote-footer__inner {
     flex-direction: column;
     gap: 8px;
+    justify-content: center;
   }
 }
 
-@media (min-width: 769px) {
-  .mindnote-footer {
-    padding: 24px 40px;
+/* Small mobile: hero stacks vertically, images smaller */
+@media (max-width: 480px) {
+  .note-input-hero {
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 16px;
+    text-align: center;
+  }
+
+  .note-input-hero__img {
+    width: 84px;
+    height: 84px;
+  }
+
+  .note-input-hero__img--left {
+    order: 1;
+  }
+
+  .note-input-hero__center {
+    order: 2;
+  }
+
+  .note-input-hero__img--right {
+    order: 3;
   }
 }
 
@@ -810,8 +832,8 @@ button {
 }
 
 .notes-list__empty-img {
-  width: 64px;
-  height: 64px;
+  width: 140px;
+  height: 140px;
   object-fit: contain;
   opacity: 0.6;
 }
@@ -999,16 +1021,16 @@ button {
   background: var(--color-bg-card);
   border: 1px solid var(--color-border-light);
   border-radius: 16px;
-  min-width: 140px;
-  max-width: 160px;
+  min-width: 220px;
+  max-width: 240px;
   flex-shrink: 0;
 }
 
 .tips-card__toggle {
   display: flex;
-  gap: 6px;
+  gap: 4px;
   background: var(--color-bg-main);
-  padding: 4px;
+  padding: 3px;
   border-radius: 10px;
   border: 1px solid var(--color-border-light);
 }
@@ -1017,8 +1039,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   border: none;
   border-radius: 8px;
   background: transparent;
@@ -1042,20 +1064,22 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .tips-card__img {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   object-fit: contain;
+  margin-bottom: 16px;
 }
 
 .tips-card__label {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--color-text-muted);
   text-align: center;
   line-height: 1.4;
+  font-weight: 500;
 }
 
 /* List mode */
@@ -1090,8 +1114,8 @@ button {
   border-top: none;
 }
 
-/* Mobile responsive */
-@media (max-width: 640px) {
+/* Mobile & tablet responsive */
+@media (max-width: 900px) {
   .note-input-hero-wrapper {
     flex-direction: column;
   }
@@ -1127,4 +1151,234 @@ button {
     padding: 6px 12px;
     font-size: var(--text-xs);
   }
+}
+
+/* ============================================
+   HALAMAN PENGATURAN
+   ============================================ */
+
+.pengaturan-page {
+  padding: 24px;
+  max-width: 720px;
+}
+
+.pengaturan-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.pengaturan-back {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 14px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  cursor: pointer;
+  padding: 6px 0;
+  transition: color 0.15s ease;
+}
+
+.pengaturan-back:hover {
+  color: var(--color-brand);
+}
+
+.pengaturan-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.pengaturan-breadcrumb__home {
+  color: var(--color-brand);
+  font-weight: 500;
+}
+
+.pengaturan-breadcrumb__sep {
+  color: var(--color-text-muted);
+}
+
+.pengaturan-breadcrumb__current {
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+.pengaturan-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 16px 0 32px 0;
+}
+
+.pengaturan-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pengaturan-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-light);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 2px 8px rgba(160, 82, 45, 0.06);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.pengaturan-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(160, 82, 45, 0.1);
+}
+
+.pengaturan-card__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-brand);
+}
+
+.pengaturan-card__header h2 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.pengaturan-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pengaturan-field__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pengaturan-field__input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-bg-main);
+  color: var(--color-text-primary);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 15px;
+  transition: border-color 0.15s ease;
+  box-sizing: border-box;
+}
+
+.pengaturan-field__input:focus {
+  outline: none;
+  border-color: var(--color-brand);
+}
+
+.pengaturan-save-btn {
+  align-self: flex-start;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.pengaturan-success {
+  font-size: 13px;
+  color: #5a9e6f;
+  font-weight: 500;
+  padding: 8px 12px;
+  background: rgba(90, 158, 111, 0.1);
+  border-radius: 8px;
+}
+
+.pengaturan-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+
+.pengaturan-toggle-row__label {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.pengaturan-toggle {
+  width: 48px;
+  height: 26px;
+  border-radius: 13px;
+  background-color: var(--color-border);
+  border: none;
+  cursor: pointer;
+  padding: 3px;
+  transition: background-color 0.3s ease;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.pengaturan-toggle.active {
+  background-color: var(--color-brand);
+}
+
+.pengaturan-toggle__thumb {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  transition: transform 0.3s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.pengaturan-toggle.active .pengaturan-toggle__thumb {
+  transform: translateX(22px);
+}
+
+.pengaturan-hint {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.pengaturan-about {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pengaturan-about__version {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.pengaturan-about__desc {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.pengaturan-about__links {
+  display: flex;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.pengaturan-about__link {
+  font-size: 13px;
+  color: var(--color-brand);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
