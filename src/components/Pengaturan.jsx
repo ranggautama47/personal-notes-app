@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { User, Moon, Sun, Info, ChevronLeft } from 'lucide-react';
+import { toast } from 'sonner';
 
 function Pengaturan({ darkMode, onDarkModeToggle, onNavChange, fontSize, onFontSizeChange }) {
 
@@ -16,6 +17,11 @@ function Pengaturan({ darkMode, onDarkModeToggle, onNavChange, fontSize, onFontS
     localStorage.setItem('mindnote_nama', nama);
     localStorage.setItem('mindnote_email', email);
     window.dispatchEvent(new Event('storage'));
+    
+    toast.success("Profil berhasil disimpan!", {
+      description: "Data profil Anda telah diperbarui.",
+    });
+    
     setSavedMessage('Profil berhasil disimpan!');
     setTimeout(() => setSavedMessage(''), 2500);
   };
@@ -211,7 +217,7 @@ function Pengaturan({ darkMode, onDarkModeToggle, onNavChange, fontSize, onFontS
               <p>
                 Kebijakan privasi ini dapat berubah sewaktu-waktu. Perubahan akan
                 diinformasikan melalui pembaruan aplikasi. Versi saat ini berlaku
-                sejak Juni 2025.
+                sejak Juni 2026.
               </p>
             </div>
 
