@@ -101,7 +101,6 @@
 }
 
 .dark-mode .note-item__delete-button {
-  background-color: transparent;
   color: #E05A4A;
   border-right: 1px solid #2C2420;
 }
@@ -112,7 +111,6 @@
 }
 
 .dark-mode .note-item__archive-button {
-  background-color: transparent;
   color: #D48357;
 }
 

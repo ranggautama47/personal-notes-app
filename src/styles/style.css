@@ -1,37 +1,10 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:where(.dark, .dark-mode));
+
 :root {
   --font-size-base: 15px;
-
-  --color-bg-main: #f5efe6;
-  --color-bg-sidebar: #ede0d4;
-  --color-bg-card: #ffffff;
-  --color-bg-card-hover: #fdf8f3;
-
-  --color-brand: #a0522d;
-  --color-brand-light: #c4855a;
-  --color-brand-muted: #e8c9a0;
-
-  --color-text-primary: #2c1810;
-  --color-text-secondary: #6b4c3b;
-  --color-text-muted: #a08070;
-
-  --color-border: #d4b896;
-  --color-border-light: #ead9c8;
-
-  --color-tab-active-bg: #e8c9a0;
-  --color-tab-dot: #a0522d;
-
-  --color-nav-active: #f0e4d4;
-
-  --color-delete: #c0392b;
-  --color-archive: #a0522d;
-
-  --text-xs: 11px;
-  --text-sm: 13px;
-  --text-base: 15px;
-  --text-md: 16px;
-  --text-lg: 18px;
-  --text-xl: 22px;
-  --text-2xl: 28px;
 }
 
 * {
@@ -965,7 +938,7 @@ button {
   width: 100%;
   padding: 10px 0;
   border: none;
-  background: none;
+  /* background: none dihapus — agar warna dari rule spesifik & Tailwind tidak di-override */
   cursor: pointer;
   font-size: var(--text-sm);
   font-weight: 600;
